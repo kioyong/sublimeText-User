@@ -15,7 +15,6 @@ target/
 *.iml
 *.ipr
 
-Package Control.cache
 ### NetBeans ###
 nbproject/private/
 build/
@@ -23,3 +22,10 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+"Package Control.cache/"
+
+
+Evernote.sublime-settings
+Package Control.cache
+**.last-run
+"./Package Control.last-run"
