@@ -1,0 +1,21 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Evernote",
+		"IMESupport",
+		"Markdown Preview",
+		"MarkdownEditing",
+		"Material Theme",
+		"OmniMarkupPreviewer",
+		"Package Control",
+		"Pretty JSON",
+		"SnippetMaker",
+		"Sublime Text 3 Snippets",
+		"TypeScript"
+	]
+}
