@@ -1,0 +1,15 @@
+{
+	"custom":
+	[
+		{
+			"name"  : "replace",
+			"way"   : "replace",
+			"values": 
+			[
+				"Alan","Bob","Chris","David","Elisabeth","Franklin"
+			]
+		}
+	
+	],
+	"multi_select_limit": 256
+}

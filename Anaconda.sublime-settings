@@ -1,0 +1,17 @@
+{
+    "pep8": false,
+    "auto_python_builder_enabled": false,
+    // "enable_signatures_tooltip": false,
+    // "enable_docstrings_tooltip": false,
+    // "merge_signatures_and_doc": false,
+    // "auto_project_switch": false,
+    // "auto_python_builder_enabled": false,
+    // "display_signatures": false,
+    "anaconda_linting": false,
+    // "anaconda_gutter_marks": false,
+    // "anaconda_linter_underlines": false,
+    // "pyflakes_ignore_import_*": false,
+    // "mypy_suppress_stub_warnings": false,
+    // "test_include_full_path": false,
+    // "auto_unload_conflictive_plugins": false
+}
