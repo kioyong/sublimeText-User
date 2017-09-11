@@ -1,9 +1,8 @@
 [
-		{ "keys": ["f5"], "command": "hello" },
-
-		{ "keys": ["f6"], "command": "story_pre_edit" },
-		// { "keys": ["ctrl+w"], "command": "close" },
-		{ "keys": ["super+e"], "command": "show_overlay", "args": {"overlay": "command_palette", "text": "Evernote: "} },
+{ "keys": ["f5"], "command": "hello" },
+{ "keys": ["f6"], "command": "story_pre_edit" },
+{ "keys": ["f9"], "command": "map_flag" },
+{ "keys": ["super+e"], "command": "show_overlay", "args": {"overlay": "command_palette", "text": "Evernote: "} },
 { "keys": ["ctrl+e", "ctrl+s"], "command": "send_to_evernote" },
 { "keys": ["ctrl+e", "ctrl+o"], "command": "open_evernote_note" },
 { "keys": ["ctrl+e", "ctrl+u"], "command": "save_evernote_note" },
