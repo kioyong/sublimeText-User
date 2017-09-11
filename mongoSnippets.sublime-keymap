@@ -1,0 +1,4 @@
+[
+		{ "keys": ["f7"], "command": "agg_map_run" },
+		{ "keys": ["f8"], "command": "run_to_agg" }
+]

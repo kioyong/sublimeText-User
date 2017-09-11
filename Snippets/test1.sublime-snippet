@@ -1,0 +1,21 @@
+<snippet>
+    <content><![CDATA[
+"""
+
+文档注释
+
+Args : 
+    ${1}:
+
+Returns : 
+    ${2}:
+
+Raises : 
+    ${3}:
+
+"""
+]]></content>
+    <tabTrigger>"""</tabTrigger>
+    <scope>source.python</scope>
+    <description>Documentation Comments</description>
+</snippet>
