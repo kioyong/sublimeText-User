@@ -29,3 +29,4 @@ Evernote.sublime-settings
 Package Control.cache
 **.last-run
 "./Package Control.last-run"
+*.crt

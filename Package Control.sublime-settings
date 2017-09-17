@@ -7,9 +7,10 @@
 	[
 		"A File Icon",
 		"Anaconda",
+		"BracketHighlighter",
 		"Evernote",
+		"File Rename",
 		"IMESupport",
-		"Insert Nums",
 		"Markdown Preview",
 		"MarkdownEditing",
 		"Material Theme",
@@ -18,7 +19,6 @@
 		"Package Control",
 		"Pretty JSON",
 		"SnippetMaker",
-		"Sublime Text 3 Snippets",
 		"TypeScript"
 	]
 }
