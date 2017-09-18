@@ -1,5 +1,7 @@
 # import sublime
 # import sublime_plugin
+import random
+from os import urandom as _urandom
 # print("hello Python!")
 # t1 = "hello my name is liangyong"
 # t2 = t1[1:5]
@@ -157,9 +159,9 @@
 #     print("age",age)
 # printinfo("names")
 
-## 2017年9月10日 14:06:00   每天100行代码挑战
+# 2017年9月10日 14:06:00   每天100行代码挑战
 
-##不定长函数
+# 不定长函数
 # def printinfo(*vartuple):
 #     print("info:")
 #     # print(arg1`)
@@ -169,7 +171,7 @@
 
 # printinfo()
 
-##匿名函数
+# 匿名函数
 
 # sum = lambda arg1,arg2:arg1 + arg2
 # print(sum(10,20))
@@ -205,7 +207,7 @@
 # sum(10,20,30)
 # print("total = ",total)
 
-## if/lif.else/try/except/for/while  不会引用新的作用域
+# if/lif.else/try/except/for/while  不会引用新的作用域
 # text = "default text"
 # if True:
 #     text = "changed text"
@@ -224,7 +226,7 @@
 # print("local result = ",result2)
 # print("global result = ",result)
 def printinfo(list):
-    print("list = ",list)
+    print("list = ", list)
 
 # list = [1,2,3,4,5]
 # list2 = [2,5,8]
@@ -243,7 +245,7 @@ def printinfo(list):
 # printinfo(list)
 # print(list3)
 
-## 3*4 转换成 4*3
+# 3*4 转换成 4*3
 # matrix = [
 #     [1,2,3,4,6,8],
 #     [5,6,7,8],
@@ -336,7 +338,6 @@ def printinfo(list):
 
 
 # from urllib import request
-
 # response = request.urlopen("http://www.baidu.com/")
 # str1 =response.read()
 # fi = open("C:/Users/LiangYong/Sublime Text 3/data/Packages/User/xx.txt","w")
@@ -345,3 +346,30 @@ def printinfo(list):
 
 
 #
+
+# response = request.urlopen("http://www.baidu.com/")
+# str1 =response.read()
+# fi = open("C:/Users/LiangYong/Sublime Text 3/data/Packages/User/xx.txt","w")
+# fi.write(str(str1))
+# # fi.close()
+
+# random training
+print("hello random")
+# for i in range(10):
+    ##生成范围内的随机浮点数
+    # print("test random = ",random.uniform(10,20))
+    # print("test random = ",random.randint(1,1000))
+    # self.random()
+BPF = 53        # Number of bits in a float
+RECIP_BPF = 2**-53
+# print("RECIP_BPF = ",RECIP_BPF)
+aa = (int.from_bytes(_urandom(7), 'big') >> 3) * RECIP_BPF
+# print("aa= ",aa)
+# print("_urandom(7) = ",_urandom(7))
+def uniform(a, b):
+    "Get a random number in the range [a, b) or [a, b] depending on rounding."
+    return a + (b-a) * aa
+test = uniform(10,20)
+print("test = ",test)
+
+

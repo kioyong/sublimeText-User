@@ -1,12 +1,16 @@
 {
-	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
 	"draw_white_space": "all",
+<<<<<<< HEAD
 	"font_size": 15,
+=======
+	"font_size": 16,
+>>>>>>> cd2684a15c4136fcedd34926faea383e4047e11e
 	"ignored_packages":
 	[
 		"Vintage"
 	],
-	"theme": "Material-Theme.sublime-theme",
+	"theme": "Default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
