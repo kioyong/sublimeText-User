@@ -1,0 +1,54 @@
+---
+title:
+notebook:
+tags:
+---
+
+##Sublime Text进阶(一) 对特定操作的录制
+###前言
+还记得刚实习的时候,那时候经常使用sql,查找一堆特定的id返回来的数据,id存在Excel表格的一列里面,我们需要将id复制出来两边加上双引号,然后用逗号分隔放在sql的in()里面.
+单纯的我将数据复制到文本编辑器里面，然后一个一个加双引号加逗号,然后再变成一行. 你们能想象在数据多一些的时候,那酸爽的程度...
+
+好在隔壁的大佬解救了我,向我介绍了Sublime Text 和里面的批量编辑功能
+
+这一神奇又装逼的效果成功的吸引了我,从此过上了吸Sublime Text 的生活...
+***
+对上图操作分析我们可以发现做了下面步骤
+
+- ctrl + A   > 全选
+- ctrl + shift + l > 选中行批量编辑
+- ctrl + home > 跳到行首
+- 插入字符串 "
+- ct**rl + end > 跳到行尾
+- 插入字符串 ",
+- delte > 右删除
+- ctrl + end > 跳到行尾
+- backspace > 左删除
+
+上面的操作大大缩短了我前面提到的场景的执行时间,在不短的一段时间里,经常敲这一段代码,甚至我闭着眼也能打出上面一套连招,大大缩短了我给id加双引号的时间.但是对于喜欢懒到极致和秉着能快就快的想法：我可不可以更快,甚至只按一个键就实现上面的操作呢?
+***
+设置过自定义快捷键的小伙伴们，就会知道每一个keys对应的其实是一个Sublime封装好的command,如:
+```json
+{ "keys": ["ctrl+a"], "command": "select_all" },
+{ "keys": ["ctrl+shift+l"], "command": "split_selection_into_lines" },
+
+```
+可以看到我们的 "ctrl+a" 其实对应的就是 "select_all" 命令, "ctrl+shift+l" 对应的就是 "split_selection_into_lines" ,我们可以从字面意思判断该快捷键的功能,同时想知道某个功能的快捷键对应的是什么的时候,可以在keys binding里面搜索关键词找到对应的keys.
+
+既然一个"keys"对应的是一个命令,那么可不可以一个"keys"对应多个命令呢?这就是本篇文章要讲的核心内容.
+***
+###正文
+#### 一： sublime.log_commands(True)
+前面说到,其实在sublime里面每一个keys对应的是一个命令.那么我们可以在sublime里面输入 **ctrl+`** 打开console面板,输入 **sublime.log_commands(True)** 开启log模式. 之后的每一次操作,都会在console里面显示出来.
+#### 二： 创建一个 command
+```python
+import sublime
+import sublime_plugin
+class xxxCommand(sublime_plugin.WindowCommand):
+    def run(self, reverse=False):
+        window = self.window
+        window.run_command("select_all")
+```
+
+
+

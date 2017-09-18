@@ -72,7 +72,7 @@ def userCustom(order, data, length, pos , str_sel):
         return camelCase(str_sel)
     elif (order == 'under_score'):
         return under_score(str_sel)
-    elif (order == 'camelSwitch'):
+    elif (order == 'camel_switch'):
         if str_sel.find('_')>=0 :
             return camelCase(str_sel)
         else:
