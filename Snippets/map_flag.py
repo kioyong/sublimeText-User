@@ -1,3 +1,8 @@
+#coding=utf-8
+#created by yong.a.liang
+#created date 2017-09-11
+#modified by xxx
+#auto changed
 import re
 import sublime
 import sublime_plugin

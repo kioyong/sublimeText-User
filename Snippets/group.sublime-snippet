@@ -1,11 +1,12 @@
 <snippet>
 <content><![CDATA[
-\$or:[
-    {"$1":"$2"},
-    {"$3":"$4"},
-]
+{
+    \$group:{
+        _id:$1
+    }
+},
 ]]></content>
-<tabTrigger>or</tabTrigger>
+<tabTrigger>group</tabTrigger>
 <description>Mongo Project</description>
 <scope>source</scope>
 </snippet>

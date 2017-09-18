@@ -335,10 +335,13 @@ def printinfo(list):
 # f.close()
 
 
-from urllib import request
+# from urllib import request
 
-response = request.urlopen("http://www.baidu.com/")
-str1 =response.read()
-fi = open("C:/Users/LiangYong/Sublime Text 3/data/Packages/User/xx.txt","w")
-fi.write(str(str1))
-# fi.close()
+# response = request.urlopen("http://www.baidu.com/")
+# str1 =response.read()
+# fi = open("C:/Users/LiangYong/Sublime Text 3/data/Packages/User/xx.txt","w")
+# fi.write(str(str1))
+# # fi.close()
+
+
+#
