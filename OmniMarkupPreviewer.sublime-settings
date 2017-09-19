@@ -1,0 +1,12 @@
+/* OmniMarkupPreviewer default setting, DO NOT MODIFY */
+{
+      "renderer_options-MarkdownRenderer": {
+        "extensions": ["tables", "fenced_code", "codehilite"]
+    }
+  // "server_host": "127.0.0.1",
+  //   "server_port": 51004,
+  //   "refresh_on_modified": false,
+  //   // delay after modified, in milliseconds
+  //   "refresh_on_modified_delay": 2000,
+  //   "refresh_on_saved": true,
+}

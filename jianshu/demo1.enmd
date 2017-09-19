@@ -6,26 +6,31 @@ tags:
 
 ##Sublime Text进阶(一) 对特定操作的录制
 ###前言
-还记得刚实习的时候,那时候经常使用sql,查找一堆特定的id返回来的数据,id存在Excel表格的一列里面,我们需要将id复制出来两边加上双引号,然后用逗号分隔放在sql的in()里面.
-单纯的我将数据复制到文本编辑器里面，然后一个一个加双引号加逗号,然后再变成一行. 你们能想象在数据多一些的时候,那酸爽的程度...
+还记得刚实习的时候,那时候经常使用sql,然后需要查找一堆特定的id返回来的数据,
+id存在Excel表格的一列里面,我们需要将id复制出来两边加上双引号,然后用逗号分隔放在sql的in()里面.
+单纯的我将数据复制到文本编辑器里面，然后一个一个加双引号加逗号,然后再变成一行.
+你们能想象在数据多一些的时候,那酸爽的程度...
 
 好在隔壁的大佬解救了我,向我介绍了Sublime Text 和里面的批量编辑功能
+![image](https://github.com/kioyong/sublimeText-User/blob/master/gif/ids_demo.gif?raw=true)
 
 这一神奇又装逼的效果成功的吸引了我,从此过上了吸Sublime Text 的生活...
 ***
 对上图操作分析我们可以发现做了下面步骤
 
-- ctrl + A   > 全选
-- ctrl + shift + l > 选中行批量编辑
-- ctrl + home > 跳到行首
-- 插入字符串 "
-- ct**rl + end > 跳到行尾
-- 插入字符串 ",
-- delte > 右删除
-- ctrl + end > 跳到行尾
-- backspace > 左删除
+```properties
+ ctrl + a   = 全选
+ ctrl + shift + l = 选中行批量编辑
+ ctrl + home = 跳到行首
+ 插入字符串 = "
+ ctrl + end = 跳到行尾
+ 插入字符串 = ",
+ delte = 右删除
+ ctrl + end = 跳到行尾
+ backspace = 左删除
+```
 
-上面的操作大大缩短了我前面提到的场景的执行时间,在不短的一段时间里,经常敲这一段代码,甚至我闭着眼也能打出上面一套连招,大大缩短了我给id加双引号的时间.但是对于喜欢懒到极致和秉着能快就快的想法：我可不可以更快,甚至只按一个键就实现上面的操作呢?
+上面的操作大大缩短了我前面提到的场景的执行时间,在不短的一段时间里,经常敲这一段代码,甚至我闭着眼也能打出上面一套连招.但是对于喜欢懒到极致的想法:我可不可以更快,甚至只按一个键就实现上面的操作呢?
 ***
 设置过自定义快捷键的小伙伴们，就会知道每一个keys对应的其实是一个Sublime封装好的command,如:
 ```json
@@ -38,17 +43,59 @@ tags:
 既然一个"keys"对应的是一个命令,那么可不可以一个"keys"对应多个命令呢?这就是本篇文章要讲的核心内容.
 ***
 ###正文
-#### 一： sublime.log_commands(True)
-前面说到,其实在sublime里面每一个keys对应的是一个命令.那么我们可以在sublime里面输入 **ctrl+`** 打开console面板,输入 **sublime.log_commands(True)** 开启log模式. 之后的每一次操作,都会在console里面显示出来.
-#### 二： 创建一个 command
+#### 一: sublime.log_commands(True)
+前面说到,其实在sublime里面每一个keys对应的是一个命令.那么我们可以在sublime里面输入 **ctrl + `** 打开console面板,输入 **sublime.log_commands(True)** 开启log模式. 之后的每一次操作,都会在console里面显示出来.
+<!-- ![image](https://github.com/kioyong/sublimeText-User/blob/master/gif/show_log_demo.gif?raw=true) -->
+#### 二: 创建一个 command
 ```python
 import sublime
 import sublime_plugin
-class xxxCommand(sublime_plugin.WindowCommand):
+class XxxCommand(sublime_plugin.WindowCommand):
     def run(self, reverse=False):
         window = self.window
         window.run_command("select_all")
+        window.run_command("split_selection_into_lines")
+```
+用上面的模板我们可以创建一个xxx.py(文件名可以随意,建议对应class name)存到/User目录下面,当我们保存的时候,Sublime会自动重新加载User下面修改/新增的py文件.
+此处可以不需要安装python环境,因为Sublime有自带Python,只需要保存,Sublime Text就会重新加载.
+根据这个特性我们可以用print()来输出一些log,在初学python的时候很方便的测试.
+<!-- ![image](https://github.com/kioyong/sublimeText-User/blob/master/gif/show_log_demo.gif?raw=true) -->
+如果你使用ctrl+b去编译的话,可能会报下列错误,因为sublime_plugin包并不在python的libs里面,需要自行导入sublime的包到libs下.
+```
+ModuleNotFoundError: No module named 'sublime_api'
+```
+sublime会根据class名生成对应的command,注意class name 要使用驼峰式结构,且一定为Command结尾
+```properties
+XxxCommand = xxx
+AaaBbbCommand = aaa_bbb
+AaaBbbCccCommand = aaa_bbb_ccc
+```
+#### 三:新建一个keys Mapping
+当我们保存上面的文件xxx.py 到/User目录下面后,使用ctrl+`可以看到sublime 已经重新加载了xxx.py文件,那么此时在sublime 里面其实已经有了xxx命令了,我们在到Key Bindings里面添加我们的Keys Mapping
+```json
+{ "keys": ["f5"], "command": "xxx" },
+```
+此时我们使用f5,即相当于执行了xxx命令,然后就会执行XxxCommand里面的run方法,而依次执行 select_all, split_selection_into_lines 命令
+
+<!-- ![image](https://github.com/kioyong/sublimeText-User/blob/master/gif/show_log_demo.gif?raw=true) -->
+
+#### 四:window.run_commad()
+>   Runs the named WindowCommand with the (optional) given args. This method is able to run any sort of command, dispatching the command via input focus.
+
+```
+run_command(string, <args>)
 ```
 
-
-
+参考[官方文档API](http://www.sublimetext.com/docs/3/api_reference.html) 可以看到run_command有两个参数,
+第一个参数是命令的名字,第二个参数是命令的入参,如果有一些命令有入参的话,可以填参数,下面是使用的例子
+```python
+    #打开查找面板
+    window.run_command("show_panel", {"panel": "find"})
+    #输入字符串 hello world
+    window.run_command("insert", {"characters": "hello world"})
+    #关闭查找面板
+    window.run_command("hide_panel",{"cancel":"true"})
+    #查找所有符合的内容
+    window.run_command("find_all", {"characters": "n"})
+```
+相关命令的参数可以先打开Log,然后输入对应命令的键,再根据输出的log就确定需要哪些参数了.

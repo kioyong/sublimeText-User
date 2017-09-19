@@ -3,8 +3,12 @@
 	"auto_python_builder_enabled": false,
 	"color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
 	"draw_white_space": "all",
-	"font_size": 19,
+	"font_size": 17,
 	"gorename_debug": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"noteStoreUrl": "https://app.yinxiang.com/shard/s15/notestore",
 	"passworkd": "KLLJKLJLI1@#",
 	"pep8": false,
