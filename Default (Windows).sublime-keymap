@@ -1,5 +1,5 @@
 [
-{ "keys": ["f5"], "command": "xxx" },
+{ "keys": ["f5"], "command": "camel_case" },
 // { "keys": ["f6"], "command": "test_multi_fill" },
 // { "keys": ["f8"], "command": "test" },
 { "keys": ["f9"], "command": "map_flag" },

@@ -23,7 +23,7 @@ dist/
 nbdist/
 .nb-gradle/
 "Package Control.cache/"
-
+Mongo-Aggregate-Snippets/
 
 Evernote.sublime-settings
 Package Control.cache

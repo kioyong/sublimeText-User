@@ -3,18 +3,14 @@
 	"auto_python_builder_enabled": false,
 	"color_scheme": "Packages/Color Scheme - Default/Mariana.tmTheme",
 	"draw_white_space": "all",
-	"font_size": 21,
+	"font_size": 18,
 	"gorename_debug": false,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
-	"noteStoreUrl": "https://app.yinxiang.com/shard/s15/notestore",
-	"passworkd": "KLLJKLJLI1@#",
 	"pep8": false,
 	"theme": "Material-Theme.sublime-theme",
-	"token": "S=s15:U=11cc8df:E=1656f64d6a6:C=15e17b3a9e0:P=1cd:A=en-devtoken:V=2:H=c424c6ffea98446495344e796f61c1ff",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"userName": "517219382@qq.com"
+	"trim_trailing_white_space_on_save": true
 }
