@@ -9,6 +9,7 @@
 		"Anaconda",
 		"BracketHighlighter",
 		"ChannelRepositoryTools",
+		"Emmet",
 		"Evernote",
 		"File Rename",
 		"IMESupport",
@@ -20,6 +21,8 @@
 		"Package Control",
 		"Pretty JSON",
 		"SnippetMaker",
-		"TypeScript"
+		"TypeScript",
+		"Vue Syntax Highlight",
+		"Vuejs Snippets"
 	]
 }

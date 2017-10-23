@@ -1,3 +1,4 @@
+import os
 import re
 import sublime
 import sublime_plugin
@@ -44,13 +45,27 @@ class xxxCommand(sublime_plugin.TextCommand):
         def havespace(str):
             pattern = re.compile(r"\s")
             return re.search(pattern,str)
+        ##读取文件
+        # f = open('C:/Users/LiangYong/Sublime Text 3/data/Packages/User/aaa.sql')
+        # data = f.read()
+        # print("data1 = ",data)
+
+        for list in os.listdir(getpath()):
+            print("list = ",list)
+
+        # list_dirs = os.walk(getpath())
+        # for root, dirs, files in list_dirs:
+        #     print("root =",root )
+        #     print("dirs =",dirs )
+        #     print("files =",files )
+
         ##输出当前文件目录,且不包含文件名
         # view.insert(edit,view.sel()[0].begin(),getpath())
         ##输出当前文件目录,且不包含文件名,如果path有空格,两边加双引号
-        path = getpath()
-        if havespace(path):
-            path = '"'+path+'"'
-        view.insert(edit,view.sel()[0].begin(),path)
+        # path = getpath()
+        # if havespace(path):
+            # path = '"'+path+'"'
+        # view.insert(edit,view.sel()[0].begin(),path)
 
         ##上面的条件 + 替换符号\为/
         # path = getpath()
