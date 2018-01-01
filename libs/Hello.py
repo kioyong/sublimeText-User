@@ -1,50 +1,51 @@
-import re
-import sublime
-import sublime_plugin
+import math
+# 转换色彩模式rgb2hsv
+def rgb2hsv(r, g, b):
+    r, g, b = r/255.0, g/255.0, b/255.0
+    mx = max(r, g, b)
+    mn = min(r, g, b)
+    df = mx-mn
+    if mx == mn:
+        h = 0
+    elif mx == r:
+        h = (60 * ((g-b)/df) + 360) % 360
+    elif mx == g:
+        h = (60 * ((b-r)/df) + 120) % 360
+    elif mx == b:
+        h = (60 * ((r-g)/df) + 240) % 360
+    if mx == 0:
+        s = 0
+    else:
+        s = df/mx
+    v = mx
+    return h, s, v
 
-class HelloCommand(sublime_plugin.TextCommand):
-    def run(self,edit):
-        view = self.view
-        # region = view.find(r"db\.\w+\.aggregate\s{0, }\(\s{0, }\[",0)
-        # if region:
-        #     str = view.substr(region)
-        #     view.replace(edit, region,"{runCommand:{aggregate:'" +\
-        #     str[3:str.index(".agg",0,len(str))] +\
-        #     "',pipeline:[")
-        #     footer =view.find("\][\s]{0,}\)[\s]{0,}$",0)
-        #     if footer:
-        #         view.replace(edit, footer,"]}}")
-        #     return
-        # else:
-        #     region = view.find(r"[{\w\s:]+'\w+'[,\s\w_]+:\s{0,}\[",0)
-        #     if region:
-        #         str = view.substr(region)
-        #         print(str)
-        #         pattern = re.compile(r"\s{0,}{[{\w\s:]+'")
-        #         str = re.sub(pattern, '', str);
-        #         pattern = re.compile(r"'[,\s\w:]+\[")
-        #         str = re.sub(pattern, '', str);
-        #         print("str =",str)
-        #         view.replace(edit,region,"db."+str+".aggregate([")
-        #         # s = re.sub(pattern, ' ', str);
-        #         footer =view.find(r"(^\s+){0,}\][\s]{0,}}[\s]{0,}}[\s]{0,}$",0)
-        #         if footer:
-        #             view.replace(edit, footer,"])")
+# 转换色彩模式hsv2rgb
+def hsv2rgb(h, s, v):
+    h = float(h)
+    s = float(s)
+    v = float(v)
+    h60 = h / 60.0
+    h60f = math.floor(h60)
+    hi = int(h60f) % 6
+    f = h60 - h60f
+    p = v * (1 - s)
+    q = v * (1 - f * s)
+    t = v * (1 - (1 - f) * s)
+    r, g, b = 0, 0, 0
+    if hi == 0: r, g, b = v, t, p
+    elif hi == 1: r, g, b = q, v, p
+    elif hi == 2: r, g, b = p, v, t
+    elif hi == 3: r, g, b = p, q, v
+    elif hi == 4: r, g, b = t, p, v
+    elif hi == 5: r, g, b = v, p, q
+    r, g, b = int(r * 255), int(g * 255), int(b * 255)
+    return r, g, b
 
-        # print("view.id = ",view.id())
-        # print("buffer.id = ",view.buffer_id())
-        # print("is_primary = ",view.is_primary())
 
-        ##file_name 包含路径 和文件名，如果是未保存的文件，返回None
-        path = view.file_name()
-        if path:
-            pattern = re.compile(r"\\[\w. _-]+$")
-            print("path = ",re.sub(pattern, '', path))
-            return re.sub(pattern, '', path)
-        print("path = ",path)
-        return path
-        ##return null, the name assigned to the buffer, if any?
-        # view.set_name("name")
-        # print("view.name = ",view.name())
-        # self.random
+
+h, s, v = rgb2hsv(201, 204, 214)
+print(h, s, v)
+r, g, b = hsv2rgb(h, s, v*0.7)
+print(r, g, b)
 

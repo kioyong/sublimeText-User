@@ -3,7 +3,7 @@
 	"auto_python_builder_enabled": false,
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"draw_white_space": "all",
-	"font_size": 16,
+	"font_size": 14,
 	"gorename_debug": false,
 	"ignored_packages":
 	[
